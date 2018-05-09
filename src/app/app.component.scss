@@ -1,0 +1,67 @@
+#contentWrapper {  
+    flex: 1 1 100%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#topLayoutContainer {
+    flex: 0 0 30px;
+    display: flex;
+}
+#mainLayoutContainer {
+    background-color: white; 
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#toolbarContainer {
+    flex: 0 0 30px;
+    display: flex;
+}
+#mainContainer { 
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+app-navbar {
+    background-color: lightcoral;
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;
+}
+app-toolbar {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+app-chart {
+    flex: 1 1 100%;
+    display: absolute;
+    
+}
+app-symbolbar {
+    flex: 0 0 30px;
+    display: flex;
+    flex-direction: row;  
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #40525b;
+    color: white;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    flex: 0 0 100px;   
+}
+/* No outline on click */
+button {
+    outline-style: none;
+}
+.btnActive {
+    background-color: white;
+    color: black;
+}

@@ -1,0 +1,81 @@
+#toolbarContent {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#addNewChartBtnContainer {
+    flex: 0 0 30px;
+    display: flex;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: white;
+    color: black;
+    font-size: 10px;
+    border: none;
+    cursor: pointer;
+    flex: 1 1 100%;   
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    background-color: white;
+    position: relative;
+    display: inline-block;
+    display: flex;
+    flex: 0 0 30px;
+    padding: 3px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top : 0;
+    left: 100%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
+
+/* Button list divider*/
+.divider {
+    background-color: gray;
+    margin: 0px 2px;
+    flex: 0 0 1px;
+}
+/* addNewChartBtn*/
+
+/* No outline on click */
+button {
+    outline-style: none;
+}
+
+.isActive {
+    display: block;
+}
+
