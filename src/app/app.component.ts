@@ -10,39 +10,31 @@ import * as d3 from 'd3';
   providers: [ApiService]
 })
 export class AppComponent {
-  public chartViewBool : boolean = true;
-  public calendarViewBool : boolean = false;
-  public newsViewBool : boolean = false;
+  public chartViewBool: boolean = true;
+  public calendarViewBool: boolean = false;
+  public newsViewBool: boolean = false;
   public symbolData;
 
-  //public api : ApiService;
-  // getData func BETTER than getSymbolData ---------
-  constructor(private api : ApiService){}
-  getSymbolData(){
-    this.api.getSymbolData().subscribe(
-      data => {
-        this.symbolData = data;
-        console.log(this.symbolData);
-      }
-    )
-    
+  constructor(private api: ApiService) {
+
   }
-  changeView(value){
-    if(value === 1){
+
+  changeView(value) {
+    if (value === 1) {
       this.chartViewBool = true;
       this.calendarViewBool = false;
       this.newsViewBool = false;
     }
-    else if(value === 2){
+    else if (value === 2) {
       this.chartViewBool = false;
       this.calendarViewBool = true;
       this.newsViewBool = false;
     }
-    else{
+    else {
       this.chartViewBool = false;
       this.calendarViewBool = false;
       this.newsViewBool = true;
     }
   }
-  
+
 }

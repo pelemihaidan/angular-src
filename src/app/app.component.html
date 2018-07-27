@@ -7,21 +7,17 @@
 
     <div id="mainLayoutContainer">
 
-        <div id="toolbarContainer" *ngIf="chartViewBool" >
-            <app-toolbar ></app-toolbar>
-        </div>
-
-        <div id="mainContainer" *ngIf="chartViewBool">
+        
+        <div id="chartContainer" *ngIf="chartViewBool">
             <app-chart></app-chart>
-            <app-symbolbar></app-symbolbar>
+        </div>
+        
+        <div id="calendarContainer" *ngIf="calendarViewBool">
+            <app-calendar></app-calendar>
         </div>
 
-        <div id="mainContainer2" *ngIf="calendarViewBool">
-            <p>Calendar section</p>
-        </div>
-
-        <div id="mainContainer3" *ngIf="newsViewBool">
-            <p>News section</p>
+        <div id="newsContainer" *ngIf="newsViewBool">
+            <app-news></app-news>
         </div>
 
     </div>

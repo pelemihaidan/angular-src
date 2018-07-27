@@ -1,46 +1,125 @@
-<div id="chartContainer"#myDiv >
-    <div id="firstColumnContainer">
-        <div id="mainCanvasDiv">
-            <canvas 
-                id="mainCanvas"
-                #myCanvas 
-                width="2000" 
-                height="1000"
-                (pointerdown)="onMouseDown($event)" 
-                (pointerup)="onMouseUp($event)"
-                (pointermove)="onMouseMove($event)"
-                (pointerleave)="onMouseLeave($event)"
-                (mousewheel)="onMouseWheel($event)"
-                
-            ></canvas>
+<div id="firstSection">
+  <!--  TOOLBAR SECTION -->
+  <div id="toolbarSection">
+    <div id="toolbarContent" >
+      <div class="dropdown" >
+        <button title="Layouts" (click)="onClick($event)" class="dropbtn"><span class="glyphicon glyphicon-th-large"></span></button>
+        <div class="dropdown-content " (mouseleave)="mouseLeave()" *ngIf="isVisible" >
+          <div class ="drpEl">Fullscreen</div>
+          <div class ="drpEl">Vertical</div>
+          <div class ="drpEl">Horizontal</div>
+          <div class ="drpEl">Grid</div>
         </div>
-        <div id="yCanvasDiv">
-            <canvas 
-                id="yAxisChart"
-                #yAxisCanvas 
-                width="50" 
-                height="1000"
-            ></canvas>  
+      </div>
+      <div class="dropdown">
+        <button title="Lines" (click)="onClick($event)" class="dropbtn"><span class="glyphicon glyphicon-pencil"></span></button>
+        <div class="dropdown-content" (mouseleave)="mouseLeave()" *ngIf="isVisible" >
+          <div class ="drpEl" (click)="triggerTrendline()">Trendline</div>
+          <div class ="drpEl">Vertical line</div>
+          <div class ="drpEl">Horizontal line</div>
         </div>
+      </div>
+      <div class="dropdown">
+        <button title="Labels" (click)="onClick($event)" class="dropbtn"><span class="glyphicon glyphicon-text-size"></span></button>
+        <div class="dropdown-content" (mouseleave)="mouseLeave()" *ngIf="isVisible" >
+          <div class ="drpEl">Text</div>
+          <div class ="drpEl">Arrow up</div>
+          <div class ="drpEl">Arrow down</div>
+          <div class ="drpEl">Harmonic Formation</div>
+          <div class ="drpEl">Elliott Waves (3)</div>
+          <div class ="drpEl">Elliott Waves (4)</div>
+        </div>
+      </div>
     </div>
-    <div id="secondColumnContainer">
-        <div id="xCanvasDiv">
-            <canvas
-                id="xAxisChart"
-                #xAxisCanvas 
-                width="2000" 
-                height="50"
-                (click)="testDraw()"
-             ></canvas>
+
+    <!-- ADD NEW CHART BUTTON -->
+    <div class="divider"></div>
+    <div id="addNewChartBtnContainer">
+      <div class="dropdown">
+        <button title="Add new chart" (click)="onClick($event)" class="dropbtn"><span class="glyphicon glyphicon-plus"></span></button>
+        <div class="dropdown-content addSymbolDropdown" (mouseleave)="mouseLeave()" *ngIf="isVisible">
+          <div class="searchFieldDiv">
+            <input [(ngModel)]="query" placeholder="Search symbols ...">
+            <select #selectElem (change)="setTempTf(selectElem.value)">
+              <option *ngFor="let tf of timeFrameOptions">
+                {{tf}}
+              </option>
+            </select>
+            <button class="btn" (click)="addSymbol()" >Add</button>
+          </div>
+          <div class="searchContentDiv" >
+            <div class="searchContentElement" *ngFor="let data of symbolList | search:'name,type':query" (click)="fillInput(data.name)">
+              <div class="el name">{{data.name}}</div>   
+              <div class="el displayName">{{data.displayName}}</div>
+              <div class="el type">{{data.type}}</div>   
+            </div>
+          </div>
         </div>
-        <div id="fillCanvasDiv">
-            <canvas
-                id="fillCanvasChart"
-                #fillCanvas 
-                width="100" 
-                height="50"
-            ></canvas>
-        </div>
+      </div>
     </div>
-    
+  </div>
 </div>
+<div id="secondSection">
+  <!--  CHART SECTION -->
+  <div id="chartSection">
+    <div id="chartContainer"#myDiv >
+      <div id="firstColumnContainer">
+          <div id="mainCanvasDiv">
+              <canvas 
+                  id="mainCanvas"
+                  #myCanvas 
+                  width="2000" 
+                  height="1000"
+                  
+                  
+              ></canvas>
+              <canvas 
+                  id="mainCanvasTop"
+                  #myCanvasTop 
+                  width="2000" 
+                  height="1000"  
+                  (pointerdown)="onMouseDown($event)" 
+                  (pointerup)="onMouseUp($event)"
+                  (pointermove)="onMouseMove($event)"
+                  (pointerleave)="onMouseLeave($event)"
+                  (mousewheel)="onMouseWheel($event)"
+              ></canvas>
+          </div>
+          <div id="yCanvasDiv">
+              <canvas 
+                  id="yAxisChart"
+                  #yAxisCanvas 
+                  width="100" 
+                  height="1000"
+              ></canvas>  
+          </div>
+      </div>
+      <div id="secondColumnContainer">
+          <div id="xCanvasDiv">
+              <canvas
+                  id="xAxisChart"
+                  #xAxisCanvas 
+                  width="2000" 
+                  height="50"
+                  (click)="testDraw()"
+               ></canvas>
+          </div>
+          <div id="fillCanvasDiv">
+              <canvas
+                  id="fillCanvasChart"
+                  #fillCanvas 
+                  width="100" 
+                  height="50"
+              ></canvas>
+          </div>
+      </div> 
+    </div>
+  </div>
+  <!--  SYMBOLBAR SECTION -->
+  <div id="symbolBarSection">
+    <div class="elementDiv" >
+      <div class="symbolBarEl">{{p[0]}} {{p[1]}}</div>
+    </div>
+  </div>
+</div>
+

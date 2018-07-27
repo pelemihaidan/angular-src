@@ -7,11 +7,14 @@ import { HttpModule} from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { SymbolbarComponent } from './components/symbolbar/symbolbar.component';
-import { ChartComponent } from './components/chart/chart.component';
+
 
 import { ApiService } from './services/api.service';
+import { ChartComponent } from './components/chart/chart.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { NewsComponent } from './components/news/news.component';
+import { SearchPipe } from './search.pipe';
+
 
 
 
@@ -19,9 +22,11 @@ import { ApiService } from './services/api.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
-    SymbolbarComponent,
-    ChartComponent
+    ChartComponent,
+    CalendarComponent,
+    NewsComponent,
+    SearchPipe,
+    
     
   ],
   imports: [

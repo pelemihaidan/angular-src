@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="titleElement" >
+    <div class="el time" >TIME</div> 
+    <div class="el country">COUNTRY</div> 
+    <div class="el ">ECONOMIC INDICATOR</div>
+    <div class="el impact">IMPACT</div> 
+    <div class="el val">FORECAST</div>
+    <div class="el val">PUBL. VALUE</div> 
+    <div class="el val">PREVIOUS VALUE</div>  
+  </div>
+  <div class = "containerData">
+    <div class="dataElement" *ngFor="let data of sortedCalendarData">
+      <div  class="el time" >{{data.time | date:'yyyy-MM-dd HH:mm'}}</div> 
+      <div  class="el country" >{{data.country}}</div> 
+      <div  class="el indicator" >{{data.title}}</div>
+      <div  class="el impact" >{{data.impact}}</div> 
+      <div  class="el val" >{{data.forecast}}</div>
+      <div  class="el val" >{{data.current}}</div> 
+      <div  class="el val" >{{data.previous}}</div>      
+    </div> 
+  </div>
+</div>

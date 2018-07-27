@@ -1,0 +1,13 @@
+<div class="newsContainer" >
+    <div class="newsElement" *ngFor="let data of sortedNewsData" (pointerleave)="onMouseLeave($event)">
+        <div class="summaryElement">
+            <div class="el time" >{{data.time | date:'yyyy-MM-dd HH:mm'}}</div> 
+            <div class="el title">{{data.title}}</div> 
+            <button class="btn" (click)="onClick($event)">{{buttonText}}</button>
+        </div>
+            
+        <div  class="bodyElement" >
+            <div class ="bodyData" [innerHTML]="data.body" *ngIf="isVisible"> </div>
+        </div>
+    </div>
+</div>

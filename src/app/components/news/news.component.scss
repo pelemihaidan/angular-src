@@ -1,0 +1,82 @@
+.newsContainer {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 10px 10px 10px 10px; 
+}
+.newsElement {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;     
+}
+
+.summaryElement {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: row;  
+}
+.bodyElement {
+    flex: 1 1 100%;
+    display: flex;
+    max-height: 500px;
+    overflow: auto;
+    flex-direction: row;
+    display: none;
+}
+.bodyData {
+    margin: 5px;
+}
+.el{
+    flex: 1 1 100%;
+    height: 40px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    text-align: center;
+}
+.btn{
+    flex: 0 0 100px;
+    visibility: hidden;
+    margin: 5px 5px 5px 5px;
+    background-color: #40525b;
+    color: white;
+}
+.title {
+    flex: 1 1 100%;
+    text-align: left;
+    font-weight: bold;
+}
+.time{
+    flex: 0 0 150px;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    
+}
+.newsElement:hover{
+    background-color: lightgray;
+}
+.newsElement:hover .btn{
+   visibility: visible;
+}
+.newsElement:hover .bodyElement{
+    display: block;
+}
+.btn:hover{
+    background-color: gray;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 5px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 5px;
+    
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: gray;
+    cursor: pointer;
+}

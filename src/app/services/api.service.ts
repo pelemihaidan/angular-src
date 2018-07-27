@@ -7,23 +7,23 @@ const apiUrl = 'http://localhost:8080';
 @Injectable()
 export class ApiService {
   public api = apiUrl;
-  constructor(private http : Http) { 
-    
-  }
+  constructor(private http: Http) {
 
-  // getSymbolData():Observable<any>{
-  //   return this.http.get(this.api)
-  // }
+  }
   
-  public getData(){
+  public getData(url,p) {
+    const params = {
+      'symbol': p[0],
+      'granularity': p[1],
+      'from': p[2]
+    }
     return this.http
-      .get(apiUrl)
+      .get(apiUrl+url, { params: params })
       .map(response => {
         let data = response.json();
-        console.log(data)
-        return data; 
+        //console.log(data)
+        return data;
       });
-     
   }
 
 }
