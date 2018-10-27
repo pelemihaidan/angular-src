@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ApiService } from '..//..//services/api.service';
-
+import { data } from './newsData';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -9,16 +9,23 @@ import { ApiService } from '..//..//services/api.service';
 })
 export class NewsComponent {
 
-  constructor(private api : ApiService) { }
-
+  // constructor(private api : ApiService) { }
+  public mockupdata = data;
   public newsData ;
   public sortedNewsData;
   public isVisible = false;
   public buttonText = "Read More";
-  ngAfterViewInit() {
+  /* ngAfterViewInit() {
     this.getData();
+  } */
+  ngOnInit(): void {
+    this.getMockupData();
   }
-  getData() {
+  getMockupData(){
+    this.newsData=this.mockupdata['returnData'];
+    this.sortedNewsData = this.newsData.sort((a,b)=> b.time - a.time);
+  }
+  /* getData() {
     let p = ['news'];
     let url = '/news';
     this.api.getData(url,p).subscribe(
@@ -29,7 +36,7 @@ export class NewsComponent {
         console.log(this.newsData);
       }
     )
-  }
+  } */
   onClick(event){
     if(!this.isVisible){
       this.buttonText = "Close";

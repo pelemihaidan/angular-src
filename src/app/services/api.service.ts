@@ -18,7 +18,7 @@ export class ApiService {
       'from': p[2]
     }
     return this.http
-      .get(apiUrl+url, { params: params })
+      .get(url, { params: params })
       .map(response => {
         let data = response.json();
         //console.log(data)

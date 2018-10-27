@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ApiService } from '..//..//services/api.service';
-
+import { data } from './calendarData';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -8,16 +8,28 @@ import { ApiService } from '..//..//services/api.service';
   providers: [ApiService]
 })
 export class CalendarComponent {
-
-  constructor(private api : ApiService) { }
+  public mockupdata = data;
+  //constructor(private api : ApiService) { }
   public calendarData ;
-  public sortedCalendarData;
-  ngAfterViewInit() {
-    this.getData(); 
+  public sortedCalendarData = [];
+  ngOnInit(): void {
+
+    this.getMockupData();
 
   }
 
-  getData() {
+  /* ngAfterViewInit() {
+    this.getData(); 
+  } */
+
+  getMockupData(){
+    this.calendarData = this.mockupdata['returnData'];
+    console.log(this.calendarData);
+    this.sortedCalendarData = this.calendarData.sort((a,b)=> a.time - b.time);
+    console.log(this.sortedCalendarData[0]);
+  }
+
+  /* getData() {
     let p = ['calendar'];
     let url = '/calendar';
     this.api.getData(url,p).subscribe(
@@ -31,6 +43,6 @@ export class CalendarComponent {
       }
     )
     
-  }
+  } */
   
 }
